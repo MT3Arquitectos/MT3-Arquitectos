@@ -21,7 +21,7 @@ import useSmoothScroll from './hooks/useSmoothScroll';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-  { rel: 'apple-touch-icon', href: '/favicon.ico' },
+  { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
   { rel: 'canonical', href: 'https://mt3arquitectos.com.mx/' },
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },

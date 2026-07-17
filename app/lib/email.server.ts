@@ -58,8 +58,7 @@ function buildHtml(name: string, email: string, message: string): string {
           <table role="presentation" style="width:600px;border-collapse:collapse;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
             <tr>
               <td style="background-color:#262626;background:linear-gradient(135deg,#262626 0%,#333333 100%);padding:50px 40px;text-align:center;">
-                <div style="color:#ffffff;font-size:34px;font-weight:700;letter-spacing:6px;line-height:1;">MT3</div>
-                <div style="margin:6px 0 22px 0;color:#b3b3b3;font-size:12px;font-weight:400;letter-spacing:4px;text-transform:uppercase;">Arquitectos</div>
+                <img src="cid:mt3logo" alt="MT3 Arquitectos" width="200" style="width:200px;max-width:200px;height:auto;margin-bottom:20px;display:inline-block;" />
                 <h2 style="margin:0;color:#ffffff;font-size:18px;font-weight:400;letter-spacing:1px;">Nuevo mensaje de contacto</h2>
               </td>
             </tr>
@@ -151,6 +150,15 @@ export async function sendContactEmail(input: {
       replyTo: email,
       text: `Nombre: ${name}\nCorreo: ${email}\nMensaje: ${message}`,
       html: buildHtml(name, email, message),
+      // Logo incrustado (inline CID): Resend baja la imagen y la embebe en el
+      // correo, así se ve aunque el cliente bloquee imágenes externas.
+      attachments: [
+        {
+          path: 'https://mt3arquitectos.com.mx/MT3_LOGO_WHITE.png',
+          filename: 'mt3-logo.png',
+          contentId: 'mt3logo',
+        },
+      ],
     });
 
     if (error) {

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mt3arquitectos.com.mx/sitemap.xml

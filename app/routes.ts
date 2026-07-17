@@ -7,4 +7,5 @@ export default [
   route('proyectos', 'routes/proyectos.tsx'),
   route('proyectos/:slug', 'routes/proyecto-detalle.tsx'),
   route('contacto', 'routes/contacto.tsx'),
+  route('sitemap.xml', 'routes/sitemap.xml.ts'),
 ] satisfies RouteConfig;

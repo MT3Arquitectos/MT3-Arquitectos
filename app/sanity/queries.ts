@@ -39,3 +39,10 @@ export const PROJECTS_QUERY = defineQuery(
 export const PROJECT_QUERY = defineQuery(
   `*[_type == "proyecto" && slug.current == $slug][0]{${PROJECT_FIELDS}}`
 );
+
+export const PROJECT_SLUGS_QUERY = defineQuery(
+  `*[_type == "proyecto" && defined(slug.current)] | order(order asc){
+    "slug": slug.current,
+    _updatedAt
+  }`
+);

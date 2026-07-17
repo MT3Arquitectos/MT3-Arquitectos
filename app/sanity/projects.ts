@@ -1,6 +1,6 @@
 import { client } from './client';
 import { urlFor, type ImageSource } from './image';
-import { PROJECTS_QUERY, PROJECT_QUERY } from './queries';
+import { PROJECTS_QUERY, PROJECT_QUERY, PROJECT_SLUGS_QUERY } from './queries';
 import type { Project, GalleryItem } from '../data/projectsData';
 
 // Forma cruda del documento tal como llega de GROQ (antes de mapear a Project).
@@ -87,4 +87,16 @@ export async function getAllProjects(): Promise<Project[]> {
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   const doc = await client.fetch<RawProject | null>(PROJECT_QUERY, { slug });
   return doc ? mapProject(doc) : null;
+}
+
+export interface ProjectSitemapEntry {
+  slug: string;
+  updatedAt: string;
+}
+
+export async function getProjectSlugs(): Promise<ProjectSitemapEntry[]> {
+  const rows = await client.fetch<{ slug: string; _updatedAt: string }[]>(
+    PROJECT_SLUGS_QUERY
+  );
+  return rows.map((r) => ({ slug: r.slug, updatedAt: r._updatedAt }));
 }

@@ -17,7 +17,7 @@ const Footer = () => {
 
             {/* Logo and Description */}
             <div className="lg:col-span-1">
-              <h2 className="text-2xl font-bold mb-4"><img src="/MT3_LOGO_WHITE.png" alt="Logo" className="w-auto h-20" /></h2>
+              <h2 className="text-2xl font-bold mb-4"><img src="/navbar_logo.png" alt="Logo" className="w-auto h-20" /></h2>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 Ofrecemos una gama completa de diseño arquitectónico
               </p>

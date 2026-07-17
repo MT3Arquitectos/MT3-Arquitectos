@@ -89,7 +89,7 @@ export function NavBar({ items, className = '' }: NavBarProps) {
       <div className={`fixed top-0 py-6 left-10 z-50 hidden lg:block transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center">
           <img
-            src="/MT3_LOGO_WHITE.png"
+            src="/navbar_logo.png"
             alt="MT3 Logo"
             className="h-20 w-auto bg-slate-500/20 rounded-lg p-2 backdrop-blur-lg shadow-lg hover:scale-105 transition-all duration-300"
           />
@@ -137,7 +137,7 @@ export function NavBar({ items, className = '' }: NavBarProps) {
       <div className={`fixed top-5 left-5 z-50 lg:hidden transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-20'}`}>
         <Link to="/" className="flex items-center">
           <img
-            src="/MT3_LOGO_WHITE.png"
+            src="/navbar_logo.png"
             alt="MT3 Logo"
             className="h-14 w-auto bg-slate-500/20 rounded-lg p-2 shadow-lg hover:scale-105 transition-all duration-300"
           />

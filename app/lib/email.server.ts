@@ -57,8 +57,9 @@ function buildHtml(name: string, email: string, message: string): string {
         <td align="center" style="padding:50px 20px;">
           <table role="presentation" style="width:600px;border-collapse:collapse;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
             <tr>
-              <td style="background:linear-gradient(135deg,#262626 0%,#333333 100%);padding:50px 40px;text-align:center;">
-                <img src="https://mt3arquitectos.com.mx/MT3_LOGO_WHITE.png?v=2" alt="MT3 Arquitectos" width="200" style="max-width:200px;height:auto;margin-bottom:20px;" />
+              <td style="background-color:#262626;background:linear-gradient(135deg,#262626 0%,#333333 100%);padding:50px 40px;text-align:center;">
+                <div style="color:#ffffff;font-size:34px;font-weight:700;letter-spacing:6px;line-height:1;">MT3</div>
+                <div style="margin:6px 0 22px 0;color:#b3b3b3;font-size:12px;font-weight:400;letter-spacing:4px;text-transform:uppercase;">Arquitectos</div>
                 <h2 style="margin:0;color:#ffffff;font-size:18px;font-weight:400;letter-spacing:1px;">Nuevo mensaje de contacto</h2>
               </td>
             </tr>

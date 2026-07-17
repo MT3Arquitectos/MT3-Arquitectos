@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
+import { FiArrowRight } from 'react-icons/fi';
 import { PROJECT_CATEGORIES } from '../../data/projectsData';
 import type { Project } from '../../data/projectsData';
 
@@ -53,9 +54,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </span>
         </div>
         <div>
-          <p className="text-white/80 text-xs md:text-sm uppercase">{project.location}</p>
-          <span className="inline-flex items-center gap-2 text-white mt-1 text-xs md:text-sm font-semibold underline">
+          <p className="text-white/80 text-xs md:text-sm uppercase mb-3">{project.location}</p>
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-black/25 px-5 py-2 text-xs md:text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
             Ver detalles
+            <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </span>
         </div>
       </div>

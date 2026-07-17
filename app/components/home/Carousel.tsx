@@ -1,6 +1,6 @@
 // Carousel.tsx
-import { useId, useState } from 'react';
-import type { SyntheticEvent } from 'react';
+import { useId, useRef, useState } from 'react';
+import type { PointerEvent, SyntheticEvent } from 'react';
 import { Link } from 'react-router';
 import { FaArrowRight, FaArrowLeft, FaInfoCircle } from 'react-icons/fa';
 import { DrawOutlineButton } from '../ui/DrawOutlineButton';
@@ -85,6 +85,7 @@ const Slide = ({
             onLoad={imageLoaded}
             loading="eager"
             decoding="sync"
+            draggable={false}
           />
 
           {/* Expandable Box */}
@@ -181,6 +182,14 @@ export const Carousel = ({ slides = [] }: { slides?: SlideData[] }) => {
   const [current, setCurrent] = useState(0);
   const [expandedIndex, setExpandedIndex] = useState(-1);
 
+  // Arrastre (drag / swipe) — funciona con mouse y touch vía Pointer Events.
+  const dragStartX = useRef<number | null>(null);
+  const dragMoved = useRef(false);
+  const dragOffsetRef = useRef(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const DRAG_THRESHOLD = 60; // px para pasar de slide
+
   const handlePreviousClick = () => {
     const previous = current - 1;
     setCurrent(previous < 0 ? slides.length - 1 : previous);
@@ -204,6 +213,31 @@ export const Carousel = ({ slides = [] }: { slides?: SlideData[] }) => {
     setExpandedIndex(expandedIndex === index ? -1 : index);
   };
 
+  const onPointerDown = (e: PointerEvent<HTMLUListElement>) => {
+    dragStartX.current = e.clientX;
+    dragMoved.current = false;
+    setIsDragging(true);
+  };
+
+  const onPointerMove = (e: PointerEvent<HTMLUListElement>) => {
+    if (dragStartX.current === null) return;
+    const delta = e.clientX - dragStartX.current;
+    if (Math.abs(delta) > 4) dragMoved.current = true;
+    dragOffsetRef.current = delta;
+    setDragOffset(delta);
+  };
+
+  const endDrag = () => {
+    if (dragStartX.current === null) return;
+    const off = dragOffsetRef.current;
+    if (off <= -DRAG_THRESHOLD) handleNextClick();
+    else if (off >= DRAG_THRESHOLD) handlePreviousClick();
+    dragStartX.current = null;
+    dragOffsetRef.current = 0;
+    setIsDragging(false);
+    setDragOffset(0);
+  };
+
   const id = useId();
 
   return (
@@ -217,8 +251,24 @@ export const Carousel = ({ slides = [] }: { slides?: SlideData[] }) => {
       </h2>
 
       <ul
-        className="absolute flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
-        style={{ transform: `translateX(-${current * (100 / slides.length)}%)` }}
+        className="absolute flex mx-[-4vmin] transition-transform duration-1000 ease-in-out cursor-grab select-none active:cursor-grabbing"
+        style={{
+          transform: `translateX(calc(-${current * (100 / slides.length)}% + ${dragOffset}px))`,
+          transition: isDragging ? 'none' : undefined,
+          touchAction: 'pan-y',
+        }}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerLeave={endDrag}
+        onPointerCancel={endDrag}
+        onClickCapture={(e) => {
+          // Si hubo arrastre, evitar que el click seleccione un slide.
+          if (dragMoved.current) {
+            e.stopPropagation();
+            dragMoved.current = false;
+          }
+        }}
       >
         {slides.map((slide, index) => (
           <Slide

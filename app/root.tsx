@@ -20,8 +20,8 @@ import useScrollToTop from './hooks/useScrollToTop';
 import useSmoothScroll from './hooks/useSmoothScroll';
 
 export const links: Route.LinksFunction = () => [
-  { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-  { rel: 'apple-touch-icon', href: '/favicon.png' },
+  { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+  { rel: 'apple-touch-icon', href: '/favicon.ico' },
   { rel: 'canonical', href: 'https://mt3arquitectos.com.mx/' },
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },

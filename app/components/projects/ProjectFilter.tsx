@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { ImageComparison, ImageComparisonImage, ImageComparisonSlider } from './ImageComparison';
 import { PROJECT_CATEGORIES } from '../../data/projectsData';
 import type { Project } from '../../data/projectsData';
 
@@ -35,21 +34,19 @@ const TabButton = ({ active, onClick, children }: TabButtonProps) => (
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <div className="relative group">
-      <ImageComparison className="aspect-[16/10] w-full rounded-md overflow-hidden" enableHover>
-        <ImageComparisonImage
-          src={project.image}
-          alt={project.title}
-          position="left"
-          className="grayscale"
-        />
-        <ImageComparisonImage src={project.image} alt={project.title} position="right" />
-        <ImageComparisonSlider className="w-0.5 bg-white/40">
-          <div className="absolute top-1/2 left-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
-        </ImageComparisonSlider>
-      </ImageComparison>
+    <Link
+      to={`/proyectos/${project.slug}`}
+      className="relative group block aspect-[16/10] w-full rounded-md overflow-hidden"
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      {/* Degradado para legibilidad del texto */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-      <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between pointer-events-none">
+      <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between">
         <div className="flex items-center gap-3">
           <span className="text-white/90 text-3xl md:text-4xl font-bold drop-shadow">
             {project.title}
@@ -57,15 +54,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
         <div>
           <p className="text-white/80 text-xs md:text-sm uppercase">{project.location}</p>
-          <Link
-            to={`/proyectos/${project.slug}`}
-            className="inline-flex items-center gap-2 text-white mt-1 text-xs md:text-sm font-semibold underline pointer-events-auto"
-          >
+          <span className="inline-flex items-center gap-2 text-white mt-1 text-xs md:text-sm font-semibold underline">
             Ver detalles
-          </Link>
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

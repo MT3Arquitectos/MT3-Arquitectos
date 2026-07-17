@@ -10,3 +10,6 @@
 
 # Vercel
 .vercel
+
+# Temp / optimizador de imágenes
+.tmp/

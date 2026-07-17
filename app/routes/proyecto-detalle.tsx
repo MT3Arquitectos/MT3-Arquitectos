@@ -18,13 +18,32 @@ export async function loader({ params }: Route.LoaderArgs) {
   return { project };
 }
 
+function toProjectOgJpg(image: string) {
+  if (!image) return '/og/proyectos.jpg';
+
+  try {
+    const url = new URL(image);
+    url.searchParams.set('w', '1200');
+    url.searchParams.set('h', '630');
+    url.searchParams.set('fit', 'crop');
+    url.searchParams.set('fm', 'jpg');
+    return url.toString();
+  } catch {
+    return image;
+  }
+}
+
 export function meta({ data }: Route.MetaArgs) {
   if (!data?.project) {
     return [{ title: 'Proyecto no encontrado — MT3 Arquitectos' }];
   }
+  const ogImage = toProjectOgJpg(data.project.image);
+
   return [
     { title: `${data.project.title} — MT3 Arquitectos` },
     { name: 'description', content: data.project.description.slice(0, 155) },
+    { property: 'og:image', content: ogImage },
+    { name: 'twitter:image', content: ogImage },
   ];
 }
 

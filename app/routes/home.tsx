@@ -8,6 +8,19 @@ import Logos from '../components/home/Logos';
 import Carousel from '../components/home/Carousel';
 import HomeCTA from '../components/home/HomeCTA';
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: 'MT3 ARQUITECTOS' },
+    {
+      name: 'description',
+      content:
+        'Arquitectura contemporánea en León, Guanajuato. Diseñamos residencias, interiores y proyectos comerciales con enfoque funcional y duradero.',
+    },
+    { property: 'og:image', content: '/og/home.jpg' },
+    { name: 'twitter:image', content: '/og/home.jpg' },
+  ];
+}
+
 export async function loader() {
   const projects = await getAllProjects();
   return { projects };

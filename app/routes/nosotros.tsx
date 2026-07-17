@@ -13,6 +13,8 @@ export function meta({}: Route.MetaArgs) {
       content:
         'Despacho de arquitectura con más de 30 años de experiencia en León, Guanajuato. Conoce a nuestro equipo y nuestra visión.',
     },
+    { property: 'og:image', content: '/og/nosotros.jpg' },
+    { name: 'twitter:image', content: '/og/nosotros.jpg' },
   ];
 }
 

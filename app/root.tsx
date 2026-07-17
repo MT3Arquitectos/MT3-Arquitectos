@@ -59,7 +59,7 @@ export const meta: Route.MetaFunction = () => [
     content:
       'Arquitectura contemporánea en León, Guanajuato. Diseñamos residencias, interiores y proyectos comerciales con enfoque funcional y duradero.',
   },
-  { property: 'og:image', content: '/og/mt3-og.webp' },
+  { property: 'og:image', content: '/og/mt3-og.jpg' },
   { property: 'og:url', content: 'https://mt3arquitectos.com.mx/' },
   { property: 'og:locale', content: 'es_MX' },
   { name: 'twitter:card', content: 'summary_large_image' },
@@ -72,7 +72,7 @@ export const meta: Route.MetaFunction = () => [
     content:
       'Arquitectura contemporánea en León, Guanajuato. Diseñamos residencias, interiores y proyectos comerciales con enfoque funcional y duradero.',
   },
-  { name: 'twitter:image', content: '/og/mt3-og.webp' },
+  { name: 'twitter:image', content: '/og/mt3-og.jpg' },
   {
     'script:ld+json': {
       '@context': 'https://schema.org',
@@ -81,7 +81,7 @@ export const meta: Route.MetaFunction = () => [
       url: 'https://mt3arquitectos.com.mx/',
       logo: 'https://mt3arquitectos.com.mx/MT3_LOGO_BLACK.png',
       image: [
-        'https://mt3arquitectos.com.mx/og/mt3-og.webp',
+        'https://mt3arquitectos.com.mx/og/mt3-og.jpg',
         'https://mt3arquitectos.com.mx/esmeralda/esmeralda-3.webp',
       ],
       description:

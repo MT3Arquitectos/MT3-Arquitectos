@@ -11,6 +11,8 @@ export function meta({}: Route.MetaArgs) {
       content:
         'Portafolio de proyectos residenciales, comerciales e industriales de MT3 Arquitectos en León, Guanajuato.',
     },
+    { property: 'og:image', content: '/og/proyectos.jpg' },
+    { name: 'twitter:image', content: '/og/proyectos.jpg' },
   ];
 }
 

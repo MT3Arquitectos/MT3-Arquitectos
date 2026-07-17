@@ -12,6 +12,8 @@ export function meta({}: Route.MetaArgs) {
       content:
         'Arquitectura, interiores, consultoría y dirección técnica. Servicios completos del concepto a la construcción en León, Guanajuato.',
     },
+    { property: 'og:image', content: '/og/servicios.jpg' },
+    { name: 'twitter:image', content: '/og/servicios.jpg' },
   ];
 }
 

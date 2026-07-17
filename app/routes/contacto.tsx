@@ -15,6 +15,8 @@ export function meta({}: Route.MetaArgs) {
       content:
         'Ponte en contacto con MT3 Arquitectos en León, Guanajuato. Cuéntanos tu proyecto y lo haremos realidad.',
     },
+    { property: 'og:image', content: '/og/contacto.jpg' },
+    { name: 'twitter:image', content: '/og/contacto.jpg' },
   ];
 }
 

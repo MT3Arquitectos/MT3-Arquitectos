@@ -95,7 +95,7 @@ const Hero = () => {
             funcionalidad que perdura.
           </p>
 
-          <Link to="/contacto">
+          <Link to="/contacto" prefetch="intent">
             <Button>COTIZA</Button>
           </Link>
         </div>

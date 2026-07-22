@@ -58,7 +58,7 @@ const AboutHero = () => {
             Agenda tu asesoría y empieza a construir tu visión.
           </p>
 
-          <Link to="/contacto">
+          <Link to="/contacto" prefetch="intent">
             <Button>COMENCEMOS</Button>
           </Link>
         </div>

@@ -37,6 +37,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <Link
       to={`/proyectos/${project.slug}`}
+      prefetch="intent"
       className="relative group block aspect-[16/10] w-full rounded-md overflow-hidden"
     >
       <img

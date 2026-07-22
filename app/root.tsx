@@ -16,6 +16,7 @@ import { NavBarDemo } from './layout/Navbar';
 import Footer from './layout/Footer';
 import FloatingWAButton from './layout/FloatingWAButton';
 import SplashScreen from './components/ui/SplashScreen';
+import TopLoader from './components/ui/TopLoader';
 import useScrollToTop from './hooks/useScrollToTop';
 import useSmoothScroll from './hooks/useSmoothScroll';
 
@@ -144,6 +145,7 @@ export default function App() {
 
   return (
     <>
+      <TopLoader />
       <FloatingWAButton />
       <NavBarDemo />
       <Outlet />

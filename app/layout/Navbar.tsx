@@ -105,6 +105,7 @@ export function NavBar({ items, className = '' }: NavBarProps) {
               <Link
                 key={name}
                 to={url}
+                prefetch="intent"
                 onClick={() => setActiveTab(name)}
                 className={`
                   relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors
@@ -187,6 +188,7 @@ export function NavBar({ items, className = '' }: NavBarProps) {
                     <Link
                       key={name}
                       to={url}
+                      prefetch="intent"
                       onClick={() => handleLinkClick(name)}
                       className={`
                         flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200

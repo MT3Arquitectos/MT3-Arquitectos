@@ -93,7 +93,7 @@ const ServicesHero = () => {
             Servicios completos de arquitectura, dirección técnica y gestión de proyectos.
           </p>
 
-          <Link to="/contacto">
+          <Link to="/contacto" prefetch="intent">
             <Button>COTIZA</Button>
           </Link>
         </div>

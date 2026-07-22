@@ -82,6 +82,7 @@ export default function ProyectoDetalle({ loaderData }: Route.ComponentProps) {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-16">
         <Link
           to="/proyectos"
+          prefetch="intent"
           className="inline-flex items-center gap-2 text-lg mb-8 hover:underline"
         >
           &larr; ATRÁS
@@ -195,7 +196,7 @@ export default function ProyectoDetalle({ loaderData }: Route.ComponentProps) {
 
         {/* CTA Button */}
         <div className="text-center">
-          <Link to="/contacto">
+          <Link to="/contacto" prefetch="intent">
             <Button className="bg-black border-white text-white hover:bg-white hover:text-black">
               COTIZAR
             </Button>

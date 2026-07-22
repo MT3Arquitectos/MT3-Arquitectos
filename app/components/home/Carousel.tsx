@@ -143,7 +143,7 @@ const Slide = ({
             {title}
           </h2>
           <div className="flex justify-center">
-            <Link to={`/proyectos/${slug}`}>
+            <Link to={`/proyectos/${slug}`} prefetch="intent">
               <DrawOutlineButton className="mt-6">{button}</DrawOutlineButton>
             </Link>
           </div>

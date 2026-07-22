@@ -79,7 +79,7 @@ const MissionVission = () => {
               </motion.p>
 
               <div className="pt-4">
-                <Link to="/contacto">
+                <Link to="/contacto" prefetch="intent">
                   <Button className="bg-transparent text-white border-white hover:bg-white hover:text-black">
                     COTIZA TU PROYECTO
                   </Button>

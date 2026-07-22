@@ -19,7 +19,7 @@ const HomeCTA = () => {
 
           {/* Right side - CTA Button */}
           <div className="flex justify-center lg:justify-end">
-            <Link to="/contacto">
+            <Link to="/contacto" prefetch="intent">
               <Button className="text-lg px-8 py-4 font-medium tracking-wide">
                 COTIZA AHORA
               </Button>

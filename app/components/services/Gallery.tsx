@@ -153,7 +153,7 @@ const Gallery = () => {
             </h1>
             <p className="mt-6 text-lg text-white max-w-xl">{activeItem.description}</p>
             <div className="mt-8">
-              <Link to="/contacto">
+              <Link to="/contacto" prefetch="intent">
                 <Button>Contáctanos</Button>
               </Link>
             </div>
@@ -185,7 +185,7 @@ const Gallery = () => {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <Link to="/contacto">
+            <Link to="/contacto" prefetch="intent">
               <Button>Contáctanos</Button>
             </Link>
           </div>

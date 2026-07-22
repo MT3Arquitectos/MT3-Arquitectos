@@ -41,7 +41,7 @@ const AboutCTA = () => {
 
           {/* CTA Button */}
           <div className="pt-8">
-            <Link to="/contacto">
+            <Link to="/contacto" prefetch="intent">
               <Button2 className="text-lg px-12 py-4 font-semibold">
                 COMENCEMOS A DISEÑARLO
               </Button2>
